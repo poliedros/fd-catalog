@@ -1,5 +1,5 @@
 import { Controller } from '@nestjs/common';
-import { EventPattern } from '@nestjs/microservices';
+import { EventPattern, MessagePattern } from '@nestjs/microservices';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 
@@ -14,5 +14,10 @@ export class ProductsController {
     );
 
     await this.productsService.create(createProductDto);
+  }
+
+  @MessagePattern('catalog/find_products')
+  async findAll() {
+    return this.productsService.findAll();
   }
 }
