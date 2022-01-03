@@ -9,7 +9,7 @@ async function bootstrap() {
     {
       transport: Transport.REDIS,
       options: {
-        url: `redis://${process.env.REDIS_URL}:6379`,
+        url: `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`,
       },
     },
   );
