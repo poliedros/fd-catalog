@@ -45,6 +45,7 @@ jobs:
           # Set output parameters.
           echo ::set-output name=tags::${TAGS}
           echo ::set-output name=docker_image::${DOCKER_IMAGE}
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@master
         with:
@@ -75,5 +76,5 @@ jobs:
         with:
           name: 'VERSION'
           value: $((${{ secrets.VERSION }}+1))
-          repository: poliedros/fd-api
+          repository: poliedros/fd-catalog
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
